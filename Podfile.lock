@@ -1,0 +1,10 @@
+PODS:
+  - NSDate-Escort (1.5.0)
+
+DEPENDENCIES:
+  - NSDate-Escort
+
+SPEC CHECKSUMS:
+  NSDate-Escort: 4cd5dd67599c539d773693a412ea7288aa01dc4d
+
+COCOAPODS: 0.36.4
