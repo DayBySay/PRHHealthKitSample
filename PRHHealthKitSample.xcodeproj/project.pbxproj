@@ -17,6 +17,7 @@
 		3A09397B1AE7E77E00BD41F5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A09397A1AE7E77E00BD41F5 /* HealthKit.framework */; };
 		3A09397F1AE7EE3E00BD41F5 /* PRHTopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A09397E1AE7EE3E00BD41F5 /* PRHTopTableViewController.m */; };
 		3A0939821AE7EE4E00BD41F5 /* PRHHealthKitService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0939811AE7EE4E00BD41F5 /* PRHHealthKitService.m */; };
+		3A0939851AE7F3A300BD41F5 /* PRHPNChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0939841AE7F3A300BD41F5 /* PRHPNChartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		3A09397E1AE7EE3E00BD41F5 /* PRHTopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRHTopTableViewController.m; sourceTree = "<group>"; };
 		3A0939801AE7EE4E00BD41F5 /* PRHHealthKitService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRHHealthKitService.h; sourceTree = "<group>"; };
 		3A0939811AE7EE4E00BD41F5 /* PRHHealthKitService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRHHealthKitService.m; sourceTree = "<group>"; };
+		3A0939831AE7F3A300BD41F5 /* PRHPNChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRHPNChartViewController.h; sourceTree = "<group>"; };
+		3A0939841AE7F3A300BD41F5 /* PRHPNChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRHPNChartViewController.m; sourceTree = "<group>"; };
 		42F9B111BD4B795D6A11751C /* Pods-PRHHealthKitSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRHHealthKitSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PRHHealthKitSample/Pods-PRHHealthKitSample.debug.xcconfig"; sourceTree = "<group>"; };
 		753E8E2777E3F412EF48880D /* Pods-PRHHealthKitSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRHHealthKitSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRHHealthKitSample/Pods-PRHHealthKitSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +109,8 @@
 				3A09397E1AE7EE3E00BD41F5 /* PRHTopTableViewController.m */,
 				3A0939801AE7EE4E00BD41F5 /* PRHHealthKitService.h */,
 				3A0939811AE7EE4E00BD41F5 /* PRHHealthKitService.m */,
+				3A0939831AE7F3A300BD41F5 /* PRHPNChartViewController.h */,
+				3A0939841AE7F3A300BD41F5 /* PRHPNChartViewController.m */,
 			);
 			path = PRHHealthKitSample;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				3A09395A1AE7E38000BD41F5 /* AppDelegate.m in Sources */,
 				3A0939821AE7EE4E00BD41F5 /* PRHHealthKitService.m in Sources */,
 				3A09397F1AE7EE3E00BD41F5 /* PRHTopTableViewController.m in Sources */,
+				3A0939851AE7F3A300BD41F5 /* PRHPNChartViewController.m in Sources */,
 				3A0939571AE7E38000BD41F5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

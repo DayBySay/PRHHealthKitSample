@@ -8,7 +8,6 @@
 
 #import "PRHHealthKitService.h"
 #import <NSDate+Escort.h>
-@import HealthKit;
 
 static PRHHealthKitService *sharedService;
 

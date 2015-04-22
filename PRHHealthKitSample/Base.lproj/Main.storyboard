@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Svn-EL-BZ8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5RN-zj-bF8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="PSl-la-gQF">
+            <objects>
+                <navigationController id="5RN-zj-bF8" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ifl-UK-mSO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Svn-EL-BZ8" kind="relationship" relationship="rootViewController" id="e27-vl-Y1C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ySH-8U-0ct" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="181" y="363"/>
+        </scene>
         <!--Top Table View Controller-->
         <scene sceneID="ENK-Zn-15U">
             <objects>
@@ -28,6 +45,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jGG-wX-RgN" kind="show" id="Wtb-R5-b07"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ook-CZ-AZh" style="IBUITableViewCellStyleDefault" id="lbw-zm-Oax">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -93,11 +113,31 @@
                             <outlet property="delegate" destination="Svn-EL-BZ8" id="2Ke-6Z-x6U"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="uTA-ei-IdX"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8nd-Vt-vz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="640" y="363"/>
+        </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="LLd-sO-cfj">
+            <objects>
+                <viewController id="jGG-wX-RgN" customClass="PRHPNChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8i3-Mz-M7h"/>
+                        <viewControllerLayoutGuide type="bottom" id="8KO-Wa-21K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KBf-uH-y3v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOJ-v1-YhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066" y="363"/>
         </scene>
     </scenes>
 </document>

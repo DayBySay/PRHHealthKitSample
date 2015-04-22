@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class HKStatisticsCollection, HKStatisticsCollectionQuery, HKStatisticsCollection;
+@import HealthKit;
 
 @interface PRHHealthKitService : NSObject
 
