@@ -1,0 +1,12 @@
+---
+# Based https://github.com/NYTimes/objective-c-style-guide but the configuration
+IndentWidth: 4
+UseTab: Never
+ContinuationIndentWidth: 4
+ColumnLimit: 0
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+ObjCSpaceAfterProperty: true
+
+# Original
+BreakBeforeBraces: Attach
