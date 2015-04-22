@@ -3,6 +3,11 @@
 
 target 'PRHHealthKitSample' do
     pod 'NSDate-Escort'
+    pod 'PNChart'
+    pod 'JBChartView'
+    pod 'ios-charts'
+    pod 'GraphKit'
+    pod 'FSLineChart'
 end
 
 target 'PRHHealthKitSampleTests' do

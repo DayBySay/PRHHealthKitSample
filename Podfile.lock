@@ -1,10 +1,34 @@
 PODS:
+  - FrameAccessor (1.3.2)
+  - FSLineChart (0.1.7)
+  - GraphKit (1.1.1):
+    - FrameAccessor (~> 1.3.2)
+    - MKFoundationKit/NSArray (~> 1.2.2)
+  - ios-charts (0.0.1)
+  - JBChartView (2.8.13)
+  - MKFoundationKit/NSArray (1.2.3)
   - NSDate-Escort (1.5.0)
+  - PNChart (0.8.2):
+    - UICountingLabel (~> 1.0.0)
+  - UICountingLabel (1.0.0)
 
 DEPENDENCIES:
+  - FSLineChart
+  - GraphKit
+  - ios-charts
+  - JBChartView
   - NSDate-Escort
+  - PNChart
 
 SPEC CHECKSUMS:
+  FrameAccessor: 0f7ba6ce37be9a5d0302a27c731dca70af8d438b
+  FSLineChart: 1b8d3727e8feb323144126d381184bf1b15e6efc
+  GraphKit: e2336bed87d9313020af525dedbca54b62e93533
+  ios-charts: 9fe9e64632a8480b940e1ac66e73dd18d5358a83
+  JBChartView: 6cd003d4a5e833d45345b85f40efd9c7e7c6f589
+  MKFoundationKit: 882d74557944790d4d9e172961ed71d6a66804b7
   NSDate-Escort: 4cd5dd67599c539d773693a412ea7288aa01dc4d
+  PNChart: 32b4ffa1ca525e255083204a3601447e85367321
+  UICountingLabel: 540feeca6bbb78be892c8ab75b6ad02313cb2b10
 
 COCOAPODS: 0.36.4
