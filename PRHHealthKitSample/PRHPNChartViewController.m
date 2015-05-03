@@ -22,20 +22,21 @@
     __block PNLineChart *lineChart = [[PNLineChart alloc] initWithFrame:(CGRect){0, 200, 320, 200}];
     [[PRHHealthKitService sharedService] stepCountCollectionWithCompletionHandler:^(HKStatisticsCollectionQuery *query, HKStatisticsCollection *result, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            PNLineChartData *data = [PNLineChartData new];
-            data.itemCount = 5;
-            data.getData = ^(NSUInteger index) {
-                HKStatistics *statistics = result.statistics[index];
-                CGFloat stepCount = [[statistics sumQuantity] doubleValueForUnit:nil];
-                return [PNLineChartDataItem dataItemWithY:stepCount];
-            };
             
             NSMutableArray *xLabels = [NSMutableArray new];
-            [result enumerateStatisticsFromDate:[NSDate dateWithDaysBeforeNow:data.itemCount + 1]
+            NSMutableArray *dataItems = [NSMutableArray new];
+            [result enumerateStatisticsFromDate:[NSDate dateWithDaysBeforeNow:result.sources.count + 1]
                                          toDate:[NSDate date]
                                       withBlock:^(HKStatistics *result, BOOL *stop) {
                                           [xLabels addObject:[result.startDate.description substringToIndex:10]];
+                                          [dataItems addObject:[PNLineChartDataItem dataItemWithY:[[result sumQuantity] doubleValueForUnit:nil]]];
                                       }];
+            
+            PNLineChartData *data = [PNLineChartData new];
+            data.itemCount = result.sources.count;
+            data.getData = ^(NSUInteger index) {
+                return dataItems[index];
+            };
             
             [lineChart setXLabels:xLabels];
             lineChart.chartData = @[data];

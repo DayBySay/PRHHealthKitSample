@@ -60,7 +60,7 @@ static PRHHealthKitService *sharedService;
 
 #pragma mark - Statistic methods
 
-- (void)stepCountCollectionWithCompletionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
+- (void)stepCountCollectionWithCompletionHandler:(void (^)(HKStatisticsCollectionQuery *query, HKStatisticsCollection *result, NSError *error))completion {
     HKQuantityType *stepCountType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     NSDateComponents *oneDateComponent = [[NSDateComponents alloc] init];
     oneDateComponent.day = 1;
