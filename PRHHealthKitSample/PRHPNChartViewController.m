@@ -39,8 +39,11 @@
     [result enumerateStatisticsFromDate:[NSDate dateWithDaysBeforeNow:6] // 今日を含んだ過去1週間
                                  toDate:[NSDate date]
                               withBlock:^(HKStatistics *result, BOOL *stop) {
-                                  [xLabels addObject:[result.startDate.description substringToIndex:10]];
-                                  [dataItems addObject:[PNLineChartDataItem dataItemWithY:[[result sumQuantity] doubleValueForUnit:nil]]];
+                                  NSString *dateString = [result.startDate.description substringToIndex:10];
+                                  double stepValue = [[result sumQuantity] doubleValueForUnit:nil];
+                                  [xLabels addObject:dateString];
+                                  [dataItems addObject:[PNLineChartDataItem dataItemWithY:stepValue]];
+                                  NSLog(@"%@ %f", dateString, stepValue);
                               }];
 
     PNLineChartData *data = [PNLineChartData new];
