@@ -9,17 +9,18 @@
 #import <Foundation/Foundation.h>
 @import HealthKit;
 
-typedef NS_ENUM(NSInteger, PRHUniteType) {
-    PRHUniteTypeHour,
-    PRHUniteTypeDate,
-    PRHUniteTypeWeek,
-    PRHUniteTypeMonth,
+typedef NS_ENUM(NSInteger, PRHHealthKitStatisticsCollectionUniteType) {
+    PRHHealthKitStatisticsCollectionUniteTypeHour,
+    PRHHealthKitStatisticsCollectionUniteTypeDate,
+    PRHHealthKitStatisticsCollectionUniteTypeWeek,
+    PRHHealthKitStatisticsCollectionUniteTypeMonth,
+    PRHHealthKitStatisticsCollectionUniteTypeYear,
 };
 
 @interface PRHHealthKitService : NSObject
 
 + (instancetype)sharedService;
 
-- (void)stepCountCollectionWithUnitType:(PRHUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *query, HKStatisticsCollection *result, NSError *error))completion;
+- (void)stepCountCollectionWithUnitType:(PRHHealthKitStatisticsCollectionUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *query, HKStatisticsCollection *result, NSError *error))completion;
 
 @end

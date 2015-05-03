@@ -60,21 +60,24 @@ static PRHHealthKitService *sharedService;
 
 #pragma mark - Statistic methods
 
-- (void)stepCountCollectionWithUnitType:(PRHUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
+- (void)stepCountCollectionWithUnitType:(PRHHealthKitStatisticsCollectionUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
 
     switch (unitType) {
-    case PRHUniteTypeHour:
+    case PRHHealthKitStatisticsCollectionUniteTypeHour:
         dateComponents.hour = 1;
         break;
-    case PRHUniteTypeDate:
+    case PRHHealthKitStatisticsCollectionUniteTypeDate:
         dateComponents.day = 1;
         break;
-    case PRHUniteTypeMonth:
-        dateComponents.day = 30;
+    case PRHHealthKitStatisticsCollectionUniteTypeWeek:
+        dateComponents.day = 7;
         break;
-    case PRHUniteTypeWeek:
+    case PRHHealthKitStatisticsCollectionUniteTypeMonth:
         dateComponents.month = 1;
+        break;
+    case PRHHealthKitStatisticsCollectionUniteTypeYear:
+        dateComponents.year = 1;
         break;
     }
 

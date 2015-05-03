@@ -21,7 +21,7 @@
     [super viewDidLoad];
     __block PNLineChart *lineChart = [[PNLineChart alloc] initWithFrame:(CGRect){0, 200, 320, 200}];
 
-    [[PRHHealthKitService sharedService] stepCountCollectionWithUnitType:PRHUniteTypeDate
+    [[PRHHealthKitService sharedService] stepCountCollectionWithUnitType:PRHHealthKitStatisticsCollectionUniteTypeDate
                                                        completionHandler:^(HKStatisticsCollectionQuery *query, HKStatisticsCollection *result, NSError *error) {
                                                            [self editLineChartWithLineChart:lineChart
                                                                                       query:query
