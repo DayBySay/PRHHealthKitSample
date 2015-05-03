@@ -20,6 +20,6 @@ typedef NS_ENUM(NSInteger, PRHUniteType) {
 
 + (instancetype)sharedService;
 
-- (void)stepCountCollectionFromTodayWithSubstructingMonth:(NSInteger)substructingMonth UnitType:(PRHUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *query, HKStatisticsCollection *result, NSError *error))completion;
+- (void)stepCountCollectionWithUnitType:(PRHUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *query, HKStatisticsCollection *result, NSError *error))completion;
 
 @end

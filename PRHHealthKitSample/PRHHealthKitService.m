@@ -60,10 +60,25 @@ static PRHHealthKitService *sharedService;
 
 #pragma mark - Statistic methods
 
-- (void)stepCountCollectionFromTodayWithSubstructingMonth:(NSInteger)substructingMonth UnitType:(PRHUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
-    NSDateComponents *oneDateComponent = [[NSDateComponents alloc] init];
-    oneDateComponent.day = 1;
-    [self stepCountCollectionWithDateConponents:oneDateComponent
+- (void)stepCountCollectionWithUnitType:(PRHUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+
+    switch (unitType) {
+    case PRHUniteTypeHour:
+        dateComponents.hour = 1;
+        break;
+    case PRHUniteTypeDate:
+        dateComponents.day = 1;
+        break;
+    case PRHUniteTypeMonth:
+        dateComponents.day = 30;
+        break;
+    case PRHUniteTypeWeek:
+        dateComponents.month = 1;
+        break;
+    }
+
+    [self stepCountCollectionWithDateConponents:dateComponents
                               completionHandler:completion];
 }
 
@@ -72,7 +87,7 @@ static PRHHealthKitService *sharedService;
     HKStatisticsCollectionQuery *query = [[HKStatisticsCollectionQuery alloc] initWithQuantityType:stepCountType
                                                                            quantitySamplePredicate:nil
                                                                                            options:HKStatisticsOptionCumulativeSum
-                                                                                        anchorDate:[[NSDate date] dateAtStartOfMonth]
+                                                                                        anchorDate:[[NSDate date] dateAtStartOfDay]
                                                                                 intervalComponents:components];
     [query setInitialResultsHandler:completion];
 
