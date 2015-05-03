@@ -60,18 +60,22 @@ static PRHHealthKitService *sharedService;
 
 #pragma mark - Statistic methods
 
-- (void)stepCountCollectionWithCompletionHandler:(void (^)(HKStatisticsCollectionQuery *query, HKStatisticsCollection *result, NSError *error))completion {
-    HKQuantityType *stepCountType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+- (void)stepCountCollectionFromTodayWithSubstructingMonth:(NSInteger)substructingMonth UnitType:(PRHUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
     NSDateComponents *oneDateComponent = [[NSDateComponents alloc] init];
     oneDateComponent.day = 1;
+    [self stepCountCollectionWithDateConponents:oneDateComponent
+                              completionHandler:completion];
+}
+
+- (void)stepCountCollectionWithDateConponents:(NSDateComponents *)components completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
+    HKQuantityType *stepCountType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     HKStatisticsCollectionQuery *query = [[HKStatisticsCollectionQuery alloc] initWithQuantityType:stepCountType
                                                                            quantitySamplePredicate:nil
                                                                                            options:HKStatisticsOptionCumulativeSum
                                                                                         anchorDate:[[NSDate date] dateAtStartOfMonth]
-                                                                                intervalComponents:oneDateComponent];
+                                                                                intervalComponents:components];
     [query setInitialResultsHandler:completion];
 
     [self.healthStore executeQuery:query];
 }
-
 @end
