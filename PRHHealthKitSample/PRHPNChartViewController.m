@@ -22,6 +22,9 @@
     __block PNLineChart *lineChart = [[PNLineChart alloc] initWithFrame:(CGRect){0, 200, 320, 200}];
 
     [[PRHHealthKitService sharedService] stepCountCollectionWithUnitType:PRHHealthKitStatisticsCollectionUniteTypeDate
+                                                 quantitySamplePredicate:[HKQuery predicateForSamplesWithStartDate:[[NSDate date] dateBySubtractingDays:10]
+                                                                                                           endDate:nil
+                                                                                                           options:HKQueryOptionStrictStartDate] //サンプルの取得開始日時が10日前以降
                                                        completionHandler:^(HKStatisticsCollectionQuery *query, HKStatisticsCollection *result, NSError *error) {
                                                            [self editLineChartWithLineChart:lineChart
                                                                                       query:query
@@ -44,7 +47,7 @@
                                   double stepValue = [[result sumQuantity] doubleValueForUnit:nil];
                                   [xLabels addObject:dateString];
                                   [dataItems addObject:[PNLineChartDataItem dataItemWithY:stepValue]];
-                                  NSLog(@"%@ %f", result.startDate.description, stepValue);
+                                  NSLog(@"%@|%@ %f", result.startDate.description, result.endDate.description, stepValue);
                               }];
 
     PNLineChartData *data = [PNLineChartData new];

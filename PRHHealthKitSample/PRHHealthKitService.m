@@ -60,7 +60,7 @@ static PRHHealthKitService *sharedService;
 
 #pragma mark - Statistic methods
 
-- (void)stepCountCollectionWithUnitType:(PRHHealthKitStatisticsCollectionUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
+- (void)stepCountCollectionWithUnitType:(PRHHealthKitStatisticsCollectionUniteType)unitType quantitySamplePredicate:(NSPredicate *)predicate completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
 
     switch (unitType) {
@@ -82,13 +82,14 @@ static PRHHealthKitService *sharedService;
     }
 
     [self stepCountCollectionWithDateConponents:dateComponents
+                        quantitySamplePredicate:predicate
                               completionHandler:completion];
 }
 
-- (void)stepCountCollectionWithDateConponents:(NSDateComponents *)components completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
+- (void)stepCountCollectionWithDateConponents:(NSDateComponents *)components quantitySamplePredicate:(NSPredicate *)predicate completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion {
     HKQuantityType *stepCountType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     HKStatisticsCollectionQuery *query = [[HKStatisticsCollectionQuery alloc] initWithQuantityType:stepCountType
-                                                                           quantitySamplePredicate:nil
+                                                                           quantitySamplePredicate:predicate
                                                                                            options:HKStatisticsOptionCumulativeSum
                                                                                         anchorDate:[[NSDate date] dateAtStartOfDay]
                                                                                 intervalComponents:components];

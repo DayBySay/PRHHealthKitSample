@@ -21,6 +21,5 @@ typedef NS_ENUM(NSInteger, PRHHealthKitStatisticsCollectionUniteType) {
 
 + (instancetype)sharedService;
 
-- (void)stepCountCollectionWithUnitType:(PRHHealthKitStatisticsCollectionUniteType)unitType completionHandler:(void (^)(HKStatisticsCollectionQuery *query, HKStatisticsCollection *result, NSError *error))completion;
-
+- (void)stepCountCollectionWithUnitType:(PRHHealthKitStatisticsCollectionUniteType)unitType quantitySamplePredicate:(NSPredicate *)predicate completionHandler:(void (^)(HKStatisticsCollectionQuery *, HKStatisticsCollection *, NSError *))completion;
 @end
